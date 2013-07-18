@@ -12,6 +12,19 @@ ig.module('game.entities.person')
 
         update: function() {
             this.parent();
+        },
+
+        draw: function() {
+            this.drawHead();
+            this.drawBody();
+        },
+
+        drawHead: function() {
+
+        },
+
+        drawBody: function() {
+
         }
 
     });
