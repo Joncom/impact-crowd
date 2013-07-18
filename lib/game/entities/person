@@ -5,7 +5,13 @@ ig.module('game.entities.person')
     EntityPerson = ig.Entity.extend({
 
         size: { x: 5, y: 6 },
-        headFill: '#FFC573',
+
+        head: {
+            pos: { x: 1, y: 0 },
+            size: { x: 3, y: 3 },
+            fill: '#FFC573'
+        },
+
         bodyFill: null,
         bodyFills: [
             // Reds
@@ -42,7 +48,10 @@ ig.module('game.entities.person')
         },
 
         drawHead: function() {
-
+            var x = this.pos.x + this.head.pos.x - ig.game.screen.x;
+            var y = this.pos.y + this.head.pos.y - ig.game.screen.y;
+            ig.system.context.fillStyle = this.head.fill;
+            ig.system.context.fillRect(x, y, this.head.size.x, this.head.size.y);
         },
 
         drawBody: function() {
