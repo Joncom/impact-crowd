@@ -5,9 +5,31 @@ ig.module('game.entities.person')
     EntityPerson = ig.Entity.extend({
 
         size: { x: 5, y: 6 },
+        headFill: '#FFC573',
+        bodyFill: null,
+        bodyFills: [
+            // Reds
+            '#A61000',
+            '#FF1800',
+            '#FF8073',
+            // Oranges
+            '#A66100',
+            '#FF9500',
+            '#FFC573',
+            // Blues
+            '#043A6B',
+            '#0C5DA5',
+            '#679FD2',
+            // Greens
+            '#007D1C',
+            '#00C12B',
+            '#65E080'
+        ],
 
         init: function(x, y, settings) {
             this.parent(x, y, settings);
+            var randomIndex = Math.floor(Math.random() * this.bodyFill.length);
+            this.bodyFill = this.bodyFills[randomIndex];
         },
 
         update: function() {
